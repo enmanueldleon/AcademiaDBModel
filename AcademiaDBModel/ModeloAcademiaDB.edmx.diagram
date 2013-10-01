@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f0d0556916a24e4d9614b912698eb348" Name="Diagram1" ZoomLevel="85" >
+        <EntityTypeShape EntityType="Model1.Personas" Width="1.5" PointX="3.375" PointY="0.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model1.Generos" Width="1.5" PointX="0.625" PointY="0.5" IsExpanded="false" />
+        <AssociationConnector Association="Model1.PersonasGeneros" />
+        <EntityTypeShape EntityType="Model1.Identificaciones" Width="1.5" PointX="0.625" PointY="1.125" IsExpanded="false" />
+        <AssociationConnector Association="Model1.PersonasIdentificaciones" />
+        <EntityTypeShape EntityType="Model1.Nacionalidades" Width="1.5" PointX="0.625" PointY="1.75" IsExpanded="false" />
+        <AssociationConnector Association="Model1.PersonasNacionalidades" />
+        <EntityTypeShape EntityType="Model1.Fotos" Width="1.5" PointX="0.625" PointY="2.25" IsExpanded="false" />
+        <AssociationConnector Association="Model1.FotosPersonas" />
+        <EntityTypeShape EntityType="Model1.Usuarios" Width="1.5" PointX="5.375" PointY="0.5" IsExpanded="false" />
+        <AssociationConnector Association="Model1.UsuariosPersonas" />
+        <EntityTypeShape EntityType="Model1.Estados" Width="1.5" PointX="5.375" PointY="1" IsExpanded="false" />
+        <AssociationConnector Association="Model1.UsuariosEstados" />
+        <EntityTypeShape EntityType="Model1.TipoUsuarios" Width="1.5" PointX="7" PointY="0.5" IsExpanded="false" />
+        <AssociationConnector Association="Model1.TipoUsuariosUsuarios" />
+        <EntityTypeShape EntityType="Model1.Estudiantes" Width="1.5" PointX="5.375" PointY="1.625" IsExpanded="false" />
+        <AssociationConnector Association="Model1.EstadosEstudiantes" />
+        <AssociationConnector Association="Model1.PersonasEstudiantes" />
+        <EntityTypeShape EntityType="Model1.CategoriaEstudiantes" Width="1.5" PointX="7" PointY="1.625" IsExpanded="false" />
+        <AssociationConnector Association="Model1.EstudiantesCategoriaEstudiantes" />
+        <EntityTypeShape EntityType="Model1.GruposSanguineos" Width="1.5" PointX="0.625" PointY="2.75" IsExpanded="false" />
+        <AssociationConnector Association="Model1.GruposSanguineosPersonas" />
+        <EntityTypeShape EntityType="Model1.Idiomas" Width="1.5" PointX="0.625" PointY="3.25" IsExpanded="false" />
+        <AssociationConnector Association="Model1.IdiomasPersonas" />
+        <EntityTypeShape EntityType="Model1.Roles" Width="1.5" PointX="8.75" PointY="0.5" IsExpanded="false" />
+        <AssociationConnector Association="Model1.UsuariosRoles" />
+        <EntityTypeShape EntityType="Model1.TiposRoles" Width="1.5" PointX="10.5" PointY="0.5" IsExpanded="false" />
+        <AssociationConnector Association="Model1.RolesTiposRoles" />
+        <EntityTypeShape EntityType="Model1.Permisos" Width="1.5" PointX="8.75" PointY="1.125" IsExpanded="false" />
+        <AssociationConnector Association="Model1.RolesPermisos" />
+        <EntityTypeShape EntityType="Model1.Modulos" Width="1.5" PointX="8.75" PointY="1.75" IsExpanded="false" />
+        <AssociationConnector Association="Model1.ModulosPermisos" />
+        <EntityTypeShape EntityType="Model1.Maestros" Width="1.5" PointX="5.375" PointY="2.375" IsExpanded="false" />
+        <AssociationConnector Association="Model1.PersonasMaestros" />
+        <EntityTypeShape EntityType="Model1.Especialidades" Width="1.5" PointX="7" PointY="2.375" IsExpanded="false" />
+        <AssociationConnector Association="Model1.MaestrosEspecialidades" />
+        <EntityTypeShape EntityType="Model1.Administrativos" Width="1.5" PointX="5.375" PointY="2.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model1.AreasAdministrativas" Width="1.5" PointX="7" PointY="2.875" IsExpanded="false" />
+        <AssociationConnector Association="Model1.AdministrativoAreasAdministrativas" />
+        <AssociationConnector Association="Model1.PersonasAdministrativo" />
+        <EntityTypeShape EntityType="Model1.Tutores" Width="1.5" PointX="5.375" PointY="3.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model1.Parentescos" Width="1.5" PointX="7" PointY="3.5" IsExpanded="false" />
+        <AssociationConnector Association="Model1.TutoresParentescos" />
+        <AssociationConnector Association="Model1.PersonasTutores" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

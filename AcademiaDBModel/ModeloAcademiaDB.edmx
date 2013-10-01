@@ -1,0 +1,710 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="Model1TargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Personas" EntityType="Model1.Personas" />
+          <EntitySet Name="Generos" EntityType="Model1.Generos" />
+          <AssociationSet Name="PersonasGeneros" Association="Model1.PersonasGeneros">
+            <End Role="Personas" EntitySet="Personas" />
+            <End Role="Generos" EntitySet="Generos" />
+          </AssociationSet>
+          <EntitySet Name="Identificaciones" EntityType="Model1.Identificaciones" />
+          <AssociationSet Name="PersonasIdentificaciones" Association="Model1.PersonasIdentificaciones">
+            <End Role="Personas" EntitySet="Personas" />
+            <End Role="Identificaciones" EntitySet="Identificaciones" />
+          </AssociationSet>
+          <EntitySet Name="Nacionalidades" EntityType="Model1.Nacionalidades" />
+          <AssociationSet Name="PersonasNacionalidades" Association="Model1.PersonasNacionalidades">
+            <End Role="Personas" EntitySet="Personas" />
+            <End Role="Nacionalidades" EntitySet="Nacionalidades" />
+          </AssociationSet>
+          <EntitySet Name="Fotos" EntityType="Model1.Fotos" />
+          <AssociationSet Name="FotosPersonas" Association="Model1.FotosPersonas">
+            <End Role="Fotos" EntitySet="Fotos" />
+            <End Role="Personas" EntitySet="Personas" />
+          </AssociationSet>
+          <EntitySet Name="Usuarios" EntityType="Model1.Usuarios" />
+          <AssociationSet Name="UsuariosPersonas" Association="Model1.UsuariosPersonas">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Personas" EntitySet="Personas" />
+          </AssociationSet>
+          <EntitySet Name="Estados" EntityType="Model1.Estados" />
+          <AssociationSet Name="UsuariosEstados" Association="Model1.UsuariosEstados">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Estados" EntitySet="Estados" />
+          </AssociationSet>
+          <EntitySet Name="TipoUsuarios" EntityType="Model1.TipoUsuarios" />
+          <AssociationSet Name="TipoUsuariosUsuarios" Association="Model1.TipoUsuariosUsuarios">
+            <End Role="TipoUsuarios" EntitySet="TipoUsuarios" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <EntitySet Name="Estudiantes" EntityType="Model1.Estudiantes" />
+          <AssociationSet Name="EstadosEstudiantes" Association="Model1.EstadosEstudiantes">
+            <End Role="Estados" EntitySet="Estados" />
+            <End Role="Estudiantes" EntitySet="Estudiantes" />
+          </AssociationSet>
+          <AssociationSet Name="PersonasEstudiantes" Association="Model1.PersonasEstudiantes">
+            <End Role="Personas" EntitySet="Personas" />
+            <End Role="Estudiantes" EntitySet="Estudiantes" />
+          </AssociationSet>
+          <EntitySet Name="CategoriaEstudiantes" EntityType="Model1.CategoriaEstudiantes" />
+          <AssociationSet Name="EstudiantesCategoriaEstudiantes" Association="Model1.EstudiantesCategoriaEstudiantes">
+            <End Role="Estudiantes" EntitySet="Estudiantes" />
+            <End Role="CategoriaEstudiantes" EntitySet="CategoriaEstudiantes" />
+          </AssociationSet>
+          <EntitySet Name="GruposSanguineos" EntityType="Model1.GruposSanguineos" />
+          <AssociationSet Name="GruposSanguineosPersonas" Association="Model1.GruposSanguineosPersonas">
+            <End Role="GruposSanguineos" EntitySet="GruposSanguineos" />
+            <End Role="Personas" EntitySet="Personas" />
+          </AssociationSet>
+          <EntitySet Name="Nacionalidads" EntityType="Model1.Nacionalidad" />
+          <EntitySet Name="Idiomas" EntityType="Model1.Idiomas" />
+          <AssociationSet Name="IdiomasPersonas" Association="Model1.IdiomasPersonas">
+            <End Role="Idiomas" EntitySet="Idiomas" />
+            <End Role="Personas" EntitySet="Personas" />
+          </AssociationSet>
+          <EntitySet Name="Roles" EntityType="Model1.Roles" />
+          <AssociationSet Name="UsuariosRoles" Association="Model1.UsuariosRoles">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Roles" EntitySet="Roles" />
+          </AssociationSet>
+          <EntitySet Name="TiposRoles" EntityType="Model1.TiposRoles" />
+          <AssociationSet Name="RolesTiposRoles" Association="Model1.RolesTiposRoles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="TiposRoles" EntitySet="TiposRoles" />
+          </AssociationSet>
+          <EntitySet Name="Permisos" EntityType="Model1.Permisos" />
+          <AssociationSet Name="RolesPermisos" Association="Model1.RolesPermisos">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Permisos" EntitySet="Permisos" />
+          </AssociationSet>
+          <EntitySet Name="Modulos" EntityType="Model1.Modulos" />
+          <AssociationSet Name="ModulosPermisos" Association="Model1.ModulosPermisos">
+            <End Role="Modulos" EntitySet="Modulos" />
+            <End Role="Permisos" EntitySet="Permisos" />
+          </AssociationSet>
+          <EntitySet Name="Maestros" EntityType="Model1.Maestros" />
+          <AssociationSet Name="PersonasMaestros" Association="Model1.PersonasMaestros">
+            <End Role="Personas" EntitySet="Personas" />
+            <End Role="Maestros" EntitySet="Maestros" />
+          </AssociationSet>
+          <EntitySet Name="Especialidades" EntityType="Model1.Especialidades" />
+          <AssociationSet Name="MaestrosEspecialidades" Association="Model1.MaestrosEspecialidades">
+            <End Role="Maestros" EntitySet="Maestros" />
+            <End Role="Especialidades" EntitySet="Especialidades" />
+          </AssociationSet>
+          <EntitySet Name="Administrativos" EntityType="Model1.Administrativos" />
+          <EntitySet Name="AreasAdministrativas" EntityType="Model1.AreasAdministrativas" />
+          <AssociationSet Name="AdministrativoAreasAdministrativas" Association="Model1.AdministrativoAreasAdministrativas">
+            <End Role="Administrativo" EntitySet="Administrativos" />
+            <End Role="AreasAdministrativas" EntitySet="AreasAdministrativas" />
+          </AssociationSet>
+          <AssociationSet Name="PersonasAdministrativo" Association="Model1.PersonasAdministrativo">
+            <End Role="Personas" EntitySet="Personas" />
+            <End Role="Administrativo" EntitySet="Administrativos" />
+          </AssociationSet>
+          <EntitySet Name="Tutores" EntityType="Model1.Tutores" />
+          <EntitySet Name="Parentescos" EntityType="Model1.Parentescos" />
+          <AssociationSet Name="TutoresParentescos" Association="Model1.TutoresParentescos">
+            <End Role="Tutores" EntitySet="Tutores" />
+            <End Role="Parentescos" EntitySet="Parentescos" />
+          </AssociationSet>
+          <AssociationSet Name="PersonasTutores" Association="Model1.PersonasTutores">
+            <End Role="Personas" EntitySet="Personas" />
+            <End Role="Tutores" EntitySet="Tutores" />
+          </AssociationSet>
+          <EntitySet Name="Asignaturas" EntityType="Model1.Asignaturas" />
+          <EntitySet Name="Niveles" EntityType="Model1.Niveles" />
+          <AssociationSet Name="AsignaturasNiveles" Association="Model1.AsignaturasNiveles">
+            <End Role="Asignaturas" EntitySet="Asignaturas" />
+            <End Role="Niveles" EntitySet="Niveles" />
+          </AssociationSet>
+          <EntitySet Name="Grados" EntityType="Model1.Grados" />
+          <EntitySet Name="Secciones" EntityType="Model1.Secciones" />
+          <EntitySet Name="Cursos" EntityType="Model1.Cursos" />
+          <AssociationSet Name="CursosGrados" Association="Model1.CursosGrados">
+            <End Role="Cursos" EntitySet="Cursos" />
+            <End Role="Grados" EntitySet="Grados" />
+          </AssociationSet>
+          <AssociationSet Name="CursosSecciones" Association="Model1.CursosSecciones">
+            <End Role="Cursos" EntitySet="Cursos" />
+            <End Role="Secciones" EntitySet="Secciones" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Personas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="PrimerNombre" Nullable="false" FixedLength="true" MaxLength="25" />
+          <Property Type="String" Name="SegundoNombre" Nullable="false" FixedLength="true" MaxLength="25" />
+          <Property Type="String" Name="ApellidoPaterno" Nullable="false" FixedLength="true" MaxLength="25" />
+          <Property Type="String" Name="ApellidoMaterno" Nullable="false" FixedLength="true" MaxLength="25" />
+          <NavigationProperty Name="Genero" Relationship="Model1.PersonasGeneros" FromRole="Personas" ToRole="Generos" />
+          <Property Type="Int32" Name="GenerosId" Nullable="false" />
+          <Property Type="DateTime" Name="FechaNacimiento" Nullable="false" />
+          <NavigationProperty Name="Identificacione" Relationship="Model1.PersonasIdentificaciones" FromRole="Personas" ToRole="Identificaciones" />
+          <Property Type="Int32" Name="IdentificacionesId" Nullable="false" />
+          <Property Type="String" Name="NoIdentificaicon" Nullable="false" FixedLength="true" MaxLength="25" />
+          <Property Type="String" Name="Direccion" Nullable="false" FixedLength="true" MaxLength="255" />
+          <NavigationProperty Name="Nacionalidade" Relationship="Model1.PersonasNacionalidades" FromRole="Personas" ToRole="Nacionalidades" />
+          <Property Type="Int32" Name="NacionalidadesId" Nullable="false" />
+          <Property Type="String" Name="Ciudad" Nullable="false" />
+          <Property Type="String" Name="Estado" Nullable="false" />
+          <Property Type="String" Name="CodigoPostal" Nullable="false" />
+          <Property Type="String" Name="Telefono1" Nullable="false" />
+          <Property Type="String" Name="Telefono2" Nullable="false" />
+          <Property Type="String" Name="Movil" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="false" />
+          <NavigationProperty Name="Foto" Relationship="Model1.FotosPersonas" FromRole="Personas" ToRole="Fotos" />
+          <Property Type="Int32" Name="FotosId" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="Model1.UsuariosPersonas" FromRole="Personas" ToRole="Usuarios" />
+          <NavigationProperty Name="Estudiante" Relationship="Model1.PersonasEstudiantes" FromRole="Personas" ToRole="Estudiantes" />
+          <NavigationProperty Name="GruposSanguineo" Relationship="Model1.GruposSanguineosPersonas" FromRole="Personas" ToRole="GruposSanguineos" />
+          <Property Type="Int32" Name="GruposSanguineosId" Nullable="false" />
+          <NavigationProperty Name="Idioma" Relationship="Model1.IdiomasPersonas" FromRole="Personas" ToRole="Idiomas" />
+          <Property Type="Int32" Name="IdiomasId" Nullable="false" />
+          <NavigationProperty Name="Maestro" Relationship="Model1.PersonasMaestros" FromRole="Personas" ToRole="Maestros" />
+          <NavigationProperty Name="Administrativoes" Relationship="Model1.PersonasAdministrativo" FromRole="Personas" ToRole="Administrativo" />
+          <NavigationProperty Name="Tutore" Relationship="Model1.PersonasTutores" FromRole="Personas" ToRole="Tutores" />
+        </EntityType>
+        <EntityType Name="Generos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Codigo" Nullable="false" FixedLength="true" MaxLength="15" />
+          <Property Type="String" Name="Descripcion" Nullable="false" FixedLength="true" MaxLength="25" />
+          <NavigationProperty Name="Personas" Relationship="Model1.PersonasGeneros" FromRole="Generos" ToRole="Personas" />
+        </EntityType>
+        <Association Name="PersonasGeneros">
+          <End Type="Model1.Personas" Role="Personas" Multiplicity="*" />
+          <End Type="Model1.Generos" Role="Generos" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Generos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Personas">
+              <PropertyRef Name="GenerosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Identificaciones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Codigo" Nullable="false" FixedLength="true" MaxLength="15" />
+          <Property Type="String" Name="Descripcion" Nullable="false" FixedLength="true" MaxLength="25" />
+          <NavigationProperty Name="Personas" Relationship="Model1.PersonasIdentificaciones" FromRole="Identificaciones" ToRole="Personas" />
+        </EntityType>
+        <Association Name="PersonasIdentificaciones">
+          <End Type="Model1.Personas" Role="Personas" Multiplicity="*" />
+          <End Type="Model1.Identificaciones" Role="Identificaciones" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Identificaciones">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Personas">
+              <PropertyRef Name="IdentificacionesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Nacionalidades">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Codigo" Nullable="false" FixedLength="true" MaxLength="15" />
+          <Property Type="String" Name="Descripcion" Nullable="false" FixedLength="true" MaxLength="25" />
+          <NavigationProperty Name="Personas" Relationship="Model1.PersonasNacionalidades" FromRole="Nacionalidades" ToRole="Personas" />
+        </EntityType>
+        <Association Name="PersonasNacionalidades">
+          <End Type="Model1.Personas" Role="Personas" Multiplicity="*" />
+          <End Type="Model1.Nacionalidades" Role="Nacionalidades" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Nacionalidades">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Personas">
+              <PropertyRef Name="NacionalidadesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Fotos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Binary" Name="Data" Nullable="false" />
+          <NavigationProperty Name="Personas" Relationship="Model1.FotosPersonas" FromRole="Fotos" ToRole="Personas" />
+        </EntityType>
+        <Association Name="FotosPersonas">
+          <End Type="Model1.Fotos" Role="Fotos" Multiplicity="1" />
+          <End Type="Model1.Personas" Role="Personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fotos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Personas">
+              <PropertyRef Name="FotosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Persona" Relationship="Model1.UsuariosPersonas" FromRole="Usuarios" ToRole="Personas" />
+          <Property Type="String" Name="NombreUsuario" Nullable="false" FixedLength="true" MaxLength="25" />
+          <Property Type="String" Name="Contrasena" Nullable="false" FixedLength="true" MaxLength="255" />
+          <NavigationProperty Name="Estado" Relationship="Model1.UsuariosEstados" FromRole="Usuarios" ToRole="Estados" />
+          <Property Type="Int32" Name="EstadosId" Nullable="false" />
+          <Property Type="DateTime" Name="FechaCreacion" Nullable="false" />
+          <Property Type="DateTime" Name="FechaCaduca" Nullable="false" />
+          <NavigationProperty Name="TipoUsuario" Relationship="Model1.TipoUsuariosUsuarios" FromRole="Usuarios" ToRole="TipoUsuarios" />
+          <Property Type="Int32" Name="TipoUsuariosId" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="Model1.UsuariosRoles" FromRole="Usuarios" ToRole="Roles" />
+          <Property Type="Int32" Name="RolesId" Nullable="false" />
+        </EntityType>
+        <Association Name="UsuariosPersonas">
+          <End Type="Model1.Usuarios" Role="Usuarios" Multiplicity="1" />
+          <End Type="Model1.Personas" Role="Personas" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Estados">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Codigo" Nullable="false" FixedLength="true" MaxLength="15" />
+          <Property Type="String" Name="Descripcion" Nullable="false" FixedLength="true" MaxLength="25" />
+          <NavigationProperty Name="Usuarios" Relationship="Model1.UsuariosEstados" FromRole="Estados" ToRole="Usuarios" />
+          <NavigationProperty Name="Estudiantes" Relationship="Model1.EstadosEstudiantes" FromRole="Estados" ToRole="Estudiantes" />
+        </EntityType>
+        <Association Name="UsuariosEstados">
+          <End Type="Model1.Usuarios" Role="Usuarios" Multiplicity="*" />
+          <End Type="Model1.Estados" Role="Estados" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Estados">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="EstadosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TipoUsuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Codigo" Nullable="false" FixedLength="true" MaxLength="15" />
+          <Property Type="String" Name="Descripcion" Nullable="false" FixedLength="true" MaxLength="25" />
+          <NavigationProperty Name="Usuarios" Relationship="Model1.TipoUsuariosUsuarios" FromRole="TipoUsuarios" ToRole="Usuarios" />
+        </EntityType>
+        <Association Name="TipoUsuariosUsuarios">
+          <End Type="Model1.TipoUsuarios" Role="TipoUsuarios" Multiplicity="1" />
+          <End Type="Model1.Usuarios" Role="Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoUsuarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="TipoUsuariosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Estudiantes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CursoIngreso" Nullable="false" />
+          <Property Type="DateTime" Name="FechaIngreso" Nullable="false" />
+          <Property Type="DateTime" Name="FechaAdmision" Nullable="false" />
+          <NavigationProperty Name="Estado" Relationship="Model1.EstadosEstudiantes" FromRole="Estudiantes" ToRole="Estados" />
+          <Property Type="Int32" Name="EstadosId" Nullable="false" />
+          <NavigationProperty Name="Persona" Relationship="Model1.PersonasEstudiantes" FromRole="Estudiantes" ToRole="Personas" />
+          <NavigationProperty Name="CategoriaEstudiante" Relationship="Model1.EstudiantesCategoriaEstudiantes" FromRole="Estudiantes" ToRole="CategoriaEstudiantes" />
+        </EntityType>
+        <Association Name="EstadosEstudiantes">
+          <End Type="Model1.Estados" Role="Estados" Multiplicity="1" />
+          <End Type="Model1.Estudiantes" Role="Estudiantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estados">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Estudiantes">
+              <PropertyRef Name="EstadosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PersonasEstudiantes">
+          <End Type="Model1.Personas" Role="Personas" Multiplicity="1" />
+          <End Type="Model1.Estudiantes" Role="Estudiantes" Multiplicity="1" />
+        </Association>
+        <EntityType Name="CategoriaEstudiantes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Codigo" Nullable="false" FixedLength="true" MaxLength="15" />
+          <Property Type="String" Name="Descripcion" Nullable="false" FixedLength="true" MaxLength="25" />
+          <NavigationProperty Name="Estudiantes" Relationship="Model1.EstudiantesCategoriaEstudiantes" FromRole="CategoriaEstudiantes" ToRole="Estudiantes" />
+        </EntityType>
+        <Association Name="EstudiantesCategoriaEstudiantes">
+          <End Type="Model1.Estudiantes" Role="Estudiantes" Multiplicity="*" />
+          <End Type="Model1.CategoriaEstudiantes" Role="CategoriaEstudiantes" Multiplicity="1" />
+        </Association>
+        <EntityType Name="GruposSanguineos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Codigo" Nullable="false" FixedLength="true" MaxLength="15" />
+          <Property Type="String" Name="Descripcion" Nullable="false" FixedLength="true" MaxLength="25" />
+          <NavigationProperty Name="Personas" Relationship="Model1.GruposSanguineosPersonas" FromRole="GruposSanguineos" ToRole="Personas" />
+        </EntityType>
+        <Association Name="GruposSanguineosPersonas">
+          <End Type="Model1.GruposSanguineos" Role="GruposSanguineos" Multiplicity="1" />
+          <End Type="Model1.Personas" Role="Personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GruposSanguineos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Personas">
+              <PropertyRef Name="GruposSanguineosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Nacionalidad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Idiomas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Codigo" Nullable="false" FixedLength="true" MaxLength="15" />
+          <Property Type="String" Name="Descripcion" Nullable="false" FixedLength="true" MaxLength="25" />
+          <NavigationProperty Name="Personas" Relationship="Model1.IdiomasPersonas" FromRole="Idiomas" ToRole="Personas" />
+        </EntityType>
+        <Association Name="IdiomasPersonas">
+          <End Type="Model1.Idiomas" Role="Idiomas" Multiplicity="1" />
+          <End Type="Model1.Personas" Role="Personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Idiomas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Personas">
+              <PropertyRef Name="IdiomasId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Codigo" Nullable="false" FixedLength="true" MaxLength="15" />
+          <Property Type="String" Name="Descripcion" Nullable="false" FixedLength="true" MaxLength="25" />
+          <NavigationProperty Name="Usuarios" Relationship="Model1.UsuariosRoles" FromRole="Roles" ToRole="Usuarios" />
+          <NavigationProperty Name="TiposRole" Relationship="Model1.RolesTiposRoles" FromRole="Roles" ToRole="TiposRoles" />
+          <Property Type="Int32" Name="TiposRolesId" Nullable="false" />
+          <NavigationProperty Name="Permiso" Relationship="Model1.RolesPermisos" FromRole="Roles" ToRole="Permisos" />
+          <Property Type="Int32" Name="PermisosId" Nullable="false" />
+        </EntityType>
+        <Association Name="UsuariosRoles">
+          <End Type="Model1.Usuarios" Role="Usuarios" Multiplicity="*" />
+          <End Type="Model1.Roles" Role="Roles" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="RolesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TiposRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Codigo" Nullable="false" FixedLength="true" MaxLength="15" />
+          <Property Type="String" Name="Descripcion" Nullable="false" FixedLength="true" MaxLength="25" />
+          <NavigationProperty Name="Roles" Relationship="Model1.RolesTiposRoles" FromRole="TiposRoles" ToRole="Roles" />
+        </EntityType>
+        <Association Name="RolesTiposRoles">
+          <End Type="Model1.Roles" Role="Roles" Multiplicity="*" />
+          <End Type="Model1.TiposRoles" Role="TiposRoles" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="TiposRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Roles">
+              <PropertyRef Name="TiposRolesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Permisos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Codigo" Nullable="false" />
+          <Property Type="String" Name="Descripcion" Nullable="false" />
+          <Property Type="Boolean" Name="Leer" Nullable="false" />
+          <Property Type="Boolean" Name="Escribir" Nullable="false" />
+          <Property Type="Boolean" Name="Modificar" Nullable="false" />
+          <Property Type="Boolean" Name="Anular" Nullable="false" />
+          <NavigationProperty Name="Roles" Relationship="Model1.RolesPermisos" FromRole="Permisos" ToRole="Roles" />
+          <NavigationProperty Name="Modulo" Relationship="Model1.ModulosPermisos" FromRole="Permisos" ToRole="Modulos" />
+        </EntityType>
+        <Association Name="RolesPermisos">
+          <End Type="Model1.Roles" Role="Roles" Multiplicity="*" />
+          <End Type="Model1.Permisos" Role="Permisos" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Permisos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Roles">
+              <PropertyRef Name="PermisosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Modulos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Codigo" Nullable="false" FixedLength="true" MaxLength="15" />
+          <Property Type="String" Name="Descripcion" Nullable="false" FixedLength="true" MaxLength="25" />
+          <NavigationProperty Name="Permisos" Relationship="Model1.ModulosPermisos" FromRole="Modulos" ToRole="Permisos" />
+        </EntityType>
+        <Association Name="ModulosPermisos">
+          <End Type="Model1.Modulos" Role="Modulos" Multiplicity="1" />
+          <End Type="Model1.Permisos" Role="Permisos" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Maestros">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Persona" Relationship="Model1.PersonasMaestros" FromRole="Maestros" ToRole="Personas" />
+          <Property Type="String" Name="GradoAcademico" Nullable="false" />
+          <NavigationProperty Name="Especialidade" Relationship="Model1.MaestrosEspecialidades" FromRole="Maestros" ToRole="Especialidades" />
+          <Property Type="Int32" Name="EspecialidadesId" Nullable="false" />
+        </EntityType>
+        <Association Name="PersonasMaestros">
+          <End Type="Model1.Personas" Role="Personas" Multiplicity="1" />
+          <End Type="Model1.Maestros" Role="Maestros" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Especialidades">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Codigo" Nullable="false" FixedLength="true" MaxLength="15" />
+          <Property Type="String" Name="Descripcion" Nullable="false" FixedLength="true" MaxLength="25" />
+          <NavigationProperty Name="Maestros" Relationship="Model1.MaestrosEspecialidades" FromRole="Especialidades" ToRole="Maestros" />
+        </EntityType>
+        <Association Name="MaestrosEspecialidades">
+          <End Type="Model1.Maestros" Role="Maestros" Multiplicity="*" />
+          <End Type="Model1.Especialidades" Role="Especialidades" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Especialidades">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Maestros">
+              <PropertyRef Name="EspecialidadesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Administrativos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="AreasAdministrativa" Relationship="Model1.AdministrativoAreasAdministrativas" FromRole="Administrativo" ToRole="AreasAdministrativas" />
+          <Property Type="Int32" Name="AreasAdministrativasId" Nullable="false" />
+          <NavigationProperty Name="Persona" Relationship="Model1.PersonasAdministrativo" FromRole="Administrativo" ToRole="Personas" />
+          <Property Type="Int32" Name="PersonasId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AreasAdministrativas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Codigo" Nullable="false" FixedLength="true" MaxLength="15" />
+          <Property Type="String" Name="Descripcion" Nullable="false" FixedLength="true" MaxLength="25" />
+          <NavigationProperty Name="Administrativoes" Relationship="Model1.AdministrativoAreasAdministrativas" FromRole="AreasAdministrativas" ToRole="Administrativo" />
+        </EntityType>
+        <Association Name="AdministrativoAreasAdministrativas">
+          <End Type="Model1.Administrativos" Role="Administrativo" Multiplicity="*" />
+          <End Type="Model1.AreasAdministrativas" Role="AreasAdministrativas" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="AreasAdministrativas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Administrativo">
+              <PropertyRef Name="AreasAdministrativasId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PersonasAdministrativo">
+          <End Type="Model1.Personas" Role="Personas" Multiplicity="1" />
+          <End Type="Model1.Administrativos" Role="Administrativo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Administrativo">
+              <PropertyRef Name="PersonasId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Tutores">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Parentescos" Relationship="Model1.TutoresParentescos" FromRole="Tutores" ToRole="Parentescos" />
+          <NavigationProperty Name="Persona" Relationship="Model1.PersonasTutores" FromRole="Tutores" ToRole="Personas" />
+        </EntityType>
+        <EntityType Name="Parentescos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Codigo" Nullable="false" FixedLength="true" MaxLength="15" />
+          <Property Type="String" Name="Descripcion" Nullable="false" FixedLength="true" MaxLength="25" />
+          <NavigationProperty Name="Tutore" Relationship="Model1.TutoresParentescos" FromRole="Parentescos" ToRole="Tutores" />
+          <Property Type="Int32" Name="TutoresId" Nullable="false" />
+        </EntityType>
+        <Association Name="TutoresParentescos">
+          <End Type="Model1.Tutores" Role="Tutores" Multiplicity="1" />
+          <End Type="Model1.Parentescos" Role="Parentescos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tutores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Parentescos">
+              <PropertyRef Name="TutoresId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PersonasTutores">
+          <End Type="Model1.Personas" Role="Personas" Multiplicity="1" />
+          <End Type="Model1.Tutores" Role="Tutores" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Asignaturas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Codigo" Nullable="false" FixedLength="true" MaxLength="15" />
+          <Property Type="String" Name="Descripcion" Nullable="false" FixedLength="true" MaxLength="25" />
+          <NavigationProperty Name="Nivele" Relationship="Model1.AsignaturasNiveles" FromRole="Asignaturas" ToRole="Niveles" />
+          <Property Type="Int32" Name="NivelesId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Niveles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Asignaturas" Relationship="Model1.AsignaturasNiveles" FromRole="Niveles" ToRole="Asignaturas" />
+        </EntityType>
+        <Association Name="AsignaturasNiveles">
+          <End Type="Model1.Asignaturas" Role="Asignaturas" Multiplicity="*" />
+          <End Type="Model1.Niveles" Role="Niveles" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Niveles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Asignaturas">
+              <PropertyRef Name="NivelesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Grados">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Codigo" Nullable="false" FixedLength="true" MaxLength="15" />
+          <Property Type="String" Name="Descripcion" Nullable="false" FixedLength="true" MaxLength="25" />
+          <NavigationProperty Name="Curso" Relationship="Model1.CursosGrados" FromRole="Grados" ToRole="Cursos" />
+        </EntityType>
+        <EntityType Name="Secciones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Codigo" Nullable="false" MaxLength="15" FixedLength="true" />
+          <Property Type="String" Name="Descripcion" Nullable="false" FixedLength="true" MaxLength="25" />
+          <NavigationProperty Name="Curso" Relationship="Model1.CursosSecciones" FromRole="Secciones" ToRole="Cursos" />
+        </EntityType>
+        <EntityType Name="Cursos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Grado" Relationship="Model1.CursosGrados" FromRole="Cursos" ToRole="Grados" />
+          <NavigationProperty Name="Seccione" Relationship="Model1.CursosSecciones" FromRole="Cursos" ToRole="Secciones" />
+          <Property Type="Int32" Name="Capacidad" Nullable="false" />
+        </EntityType>
+        <Association Name="CursosGrados">
+          <End Type="Model1.Cursos" Role="Cursos" Multiplicity="1" />
+          <End Type="Model1.Grados" Role="Grados" Multiplicity="1" />
+        </Association>
+        <Association Name="CursosSecciones">
+          <End Type="Model1.Cursos" Role="Cursos" Multiplicity="1" />
+          <End Type="Model1.Secciones" Role="Secciones" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="Model1" />
+        <Alias Key="Target" Value="Model1.Store" />
+        <EntityContainerMapping CdmEntityContainer="Model1Container" StorageEntityContainer="Model1TargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="False" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
