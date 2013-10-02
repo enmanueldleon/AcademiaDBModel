@@ -141,6 +141,38 @@
             <End Role="Cursos" EntitySet="Cursos" />
             <End Role="Secciones" EntitySet="Secciones" />
           </AssociationSet>
+          <AssociationSet Name="CursoActual" Association="Model1.CursoActual">
+            <End Role="Estudiantes" EntitySet="Estudiantes" />
+            <End Role="Cursos" EntitySet="Cursos" />
+          </AssociationSet>
+          <AssociationSet Name="EstudiantesTutores" Association="Model1.EstudiantesTutores">
+            <End Role="Estudiantes" EntitySet="Estudiantes" />
+            <End Role="Tutores" EntitySet="Tutores" />
+          </AssociationSet>
+          <AssociationSet Name="GradosAsignaturas" Association="Model1.GradosAsignaturas">
+            <End Role="Grados" EntitySet="Grados" />
+            <End Role="Asignaturas" EntitySet="Asignaturas" />
+          </AssociationSet>
+          <EntitySet Name="Calendarios" EntityType="Model1.Calendarios" />
+          <EntitySet Name="CalendarioAcademicoes" EntityType="Model1.CalendarioAcademico" />
+          <AssociationSet Name="CalendariosCalendarioAcademico" Association="Model1.CalendariosCalendarioAcademico">
+            <End Role="Calendarios" EntitySet="Calendarios" />
+            <End Role="CalendarioAcademico" EntitySet="CalendarioAcademicoes" />
+          </AssociationSet>
+          <EntitySet Name="Horarios" EntityType="Model1.Horarios" />
+          <EntitySet Name="Intervalos" EntityType="Model1.Intervalos" />
+          <AssociationSet Name="HorariosIntervalos" Association="Model1.HorariosIntervalos">
+            <End Role="Horarios" EntitySet="Horarios" />
+            <End Role="Intervalos" EntitySet="Intervalos" />
+          </AssociationSet>
+          <AssociationSet Name="HorariosAsignaturas" Association="Model1.HorariosAsignaturas">
+            <End Role="Horarios" EntitySet="Horarios" />
+            <End Role="Asignaturas" EntitySet="Asignaturas" />
+          </AssociationSet>
+          <AssociationSet Name="HorariosCursos" Association="Model1.HorariosCursos">
+            <End Role="Horarios" EntitySet="Horarios" />
+            <End Role="Cursos" EntitySet="Cursos" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Personas">
           <Key>
@@ -338,6 +370,9 @@
           <Property Type="Int32" Name="EstadosId" Nullable="false" />
           <NavigationProperty Name="Persona" Relationship="Model1.PersonasEstudiantes" FromRole="Estudiantes" ToRole="Personas" />
           <NavigationProperty Name="CategoriaEstudiante" Relationship="Model1.EstudiantesCategoriaEstudiantes" FromRole="Estudiantes" ToRole="CategoriaEstudiantes" />
+          <NavigationProperty Name="Cursos" Relationship="Model1.CursoActual" FromRole="Estudiantes" ToRole="Cursos" />
+          <NavigationProperty Name="Tutore" Relationship="Model1.EstudiantesTutores" FromRole="Estudiantes" ToRole="Tutores" />
+          <Property Type="Int32" Name="Tutor" Nullable="false" />
         </EntityType>
         <Association Name="EstadosEstudiantes">
           <End Type="Model1.Estados" Role="Estados" Multiplicity="1" />
@@ -586,6 +621,7 @@
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Parentescos" Relationship="Model1.TutoresParentescos" FromRole="Tutores" ToRole="Parentescos" />
           <NavigationProperty Name="Persona" Relationship="Model1.PersonasTutores" FromRole="Tutores" ToRole="Personas" />
+          <NavigationProperty Name="Estudiantes" Relationship="Model1.EstudiantesTutores" FromRole="Tutores" ToRole="Estudiantes" />
         </EntityType>
         <EntityType Name="Parentescos">
           <Key>
@@ -622,6 +658,9 @@
           <Property Type="String" Name="Descripcion" Nullable="false" FixedLength="true" MaxLength="25" />
           <NavigationProperty Name="Nivele" Relationship="Model1.AsignaturasNiveles" FromRole="Asignaturas" ToRole="Niveles" />
           <Property Type="Int32" Name="NivelesId" Nullable="false" />
+          <NavigationProperty Name="Grado" Relationship="Model1.GradosAsignaturas" FromRole="Asignaturas" ToRole="Grados" />
+          <Property Type="Int32" Name="GradosId" Nullable="false" />
+          <NavigationProperty Name="Horarios" Relationship="Model1.HorariosAsignaturas" FromRole="Asignaturas" ToRole="Horarios" />
         </EntityType>
         <EntityType Name="Niveles">
           <Key>
@@ -650,6 +689,7 @@
           <Property Type="String" Name="Codigo" Nullable="false" FixedLength="true" MaxLength="15" />
           <Property Type="String" Name="Descripcion" Nullable="false" FixedLength="true" MaxLength="25" />
           <NavigationProperty Name="Curso" Relationship="Model1.CursosGrados" FromRole="Grados" ToRole="Cursos" />
+          <NavigationProperty Name="Asignaturas" Relationship="Model1.GradosAsignaturas" FromRole="Grados" ToRole="Asignaturas" />
         </EntityType>
         <EntityType Name="Secciones">
           <Key>
@@ -668,6 +708,9 @@
           <NavigationProperty Name="Grado" Relationship="Model1.CursosGrados" FromRole="Cursos" ToRole="Grados" />
           <NavigationProperty Name="Seccione" Relationship="Model1.CursosSecciones" FromRole="Cursos" ToRole="Secciones" />
           <Property Type="Int32" Name="Capacidad" Nullable="false" />
+          <NavigationProperty Name="Estudiante" Relationship="Model1.CursoActual" FromRole="Cursos" ToRole="Estudiantes" />
+          <Property Type="Int32" Name="EstudiantesId" Nullable="false" />
+          <NavigationProperty Name="Horarios" Relationship="Model1.HorariosCursos" FromRole="Cursos" ToRole="Horarios" />
         </EntityType>
         <Association Name="CursosGrados">
           <End Type="Model1.Cursos" Role="Cursos" Multiplicity="1" />
@@ -676,6 +719,133 @@
         <Association Name="CursosSecciones">
           <End Type="Model1.Cursos" Role="Cursos" Multiplicity="1" />
           <End Type="Model1.Secciones" Role="Secciones" Multiplicity="1" />
+        </Association>
+        <Association Name="CursoActual">
+          <End Type="Model1.Estudiantes" Role="Estudiantes" Multiplicity="1" />
+          <End Type="Model1.Cursos" Role="Cursos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiantes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cursos">
+              <PropertyRef Name="EstudiantesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EstudiantesTutores">
+          <End Type="Model1.Estudiantes" Role="Estudiantes" Multiplicity="*" />
+          <End Type="Model1.Tutores" Role="Tutores" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Tutores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Estudiantes">
+              <PropertyRef Name="Tutor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GradosAsignaturas">
+          <End Type="Model1.Grados" Role="Grados" Multiplicity="1" />
+          <End Type="Model1.Asignaturas" Role="Asignaturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grados">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Asignaturas">
+              <PropertyRef Name="GradosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Calendarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Codigo" Nullable="false" FixedLength="true" MaxLength="15" />
+          <Property Type="String" Name="Descripcion" Nullable="false" FixedLength="true" MaxLength="25" />
+          <NavigationProperty Name="CalendarioAcademicoes" Relationship="Model1.CalendariosCalendarioAcademico" FromRole="Calendarios" ToRole="CalendarioAcademico" />
+        </EntityType>
+        <EntityType Name="CalendarioAcademico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="DiaFeriado" Nullable="false" />
+          <Property Type="String" Name="Descripcion" Nullable="false" FixedLength="true" MaxLength="25" />
+          <NavigationProperty Name="Calendario" Relationship="Model1.CalendariosCalendarioAcademico" FromRole="CalendarioAcademico" ToRole="Calendarios" />
+          <Property Type="Int32" Name="CalendariosId" Nullable="false" />
+        </EntityType>
+        <Association Name="CalendariosCalendarioAcademico">
+          <End Type="Model1.Calendarios" Role="Calendarios" Multiplicity="1" />
+          <End Type="Model1.CalendarioAcademico" Role="CalendarioAcademico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Calendarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CalendarioAcademico">
+              <PropertyRef Name="CalendariosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Horarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Codigo" Nullable="false" FixedLength="true" MaxLength="15" />
+          <Property Type="String" Name="Descripcion" Nullable="false" FixedLength="true" MaxLength="25" />
+          <NavigationProperty Name="Intervalo" Relationship="Model1.HorariosIntervalos" FromRole="Horarios" ToRole="Intervalos" />
+          <Property Type="Int32" Name="IntervalosId" Nullable="false" />
+          <NavigationProperty Name="Asignatura" Relationship="Model1.HorariosAsignaturas" FromRole="Horarios" ToRole="Asignaturas" />
+          <Property Type="Int32" Name="AsignaturasId" Nullable="false" />
+          <NavigationProperty Name="Curso" Relationship="Model1.HorariosCursos" FromRole="Horarios" ToRole="Cursos" />
+          <Property Type="Int32" Name="CursosId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Intervalos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Codigo" Nullable="false" FixedLength="true" MaxLength="15" />
+          <Property Type="String" Name="Descripcion" Nullable="false" FixedLength="true" MaxLength="25" />
+          <Property Type="Time" Name="Duracion" Nullable="false" />
+          <NavigationProperty Name="Horarios" Relationship="Model1.HorariosIntervalos" FromRole="Intervalos" ToRole="Horarios" />
+        </EntityType>
+        <Association Name="HorariosIntervalos">
+          <End Type="Model1.Horarios" Role="Horarios" Multiplicity="*" />
+          <End Type="Model1.Intervalos" Role="Intervalos" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Intervalos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Horarios">
+              <PropertyRef Name="IntervalosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HorariosAsignaturas">
+          <End Type="Model1.Horarios" Role="Horarios" Multiplicity="*" />
+          <End Type="Model1.Asignaturas" Role="Asignaturas" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Asignaturas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Horarios">
+              <PropertyRef Name="AsignaturasId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HorariosCursos">
+          <End Type="Model1.Horarios" Role="Horarios" Multiplicity="*" />
+          <End Type="Model1.Cursos" Role="Cursos" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Cursos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Horarios">
+              <PropertyRef Name="CursosId" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
       </Schema>
     </edmx:ConceptualModels>

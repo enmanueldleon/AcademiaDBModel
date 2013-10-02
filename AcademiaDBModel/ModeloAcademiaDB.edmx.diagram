@@ -49,6 +49,25 @@
         <EntityTypeShape EntityType="Model1.Parentescos" Width="1.5" PointX="7" PointY="3.5" IsExpanded="false" />
         <AssociationConnector Association="Model1.TutoresParentescos" />
         <AssociationConnector Association="Model1.PersonasTutores" />
+        <EntityTypeShape EntityType="Model1.Asignaturas" Width="1.5" PointX="12.125" PointY="2.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model1.Niveles" Width="1.5" PointX="13.75" PointY="2.875" IsExpanded="false" />
+        <AssociationConnector Association="Model1.AsignaturasNiveles" />
+        <EntityTypeShape EntityType="Model1.Grados" Width="1.5" PointX="10.5" PointY="2.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model1.Secciones" Width="1.5" PointX="10.5" PointY="2.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model1.Cursos" Width="1.5" PointX="8.75" PointY="2.375" IsExpanded="false" />
+        <AssociationConnector Association="Model1.CursosGrados" />
+        <AssociationConnector Association="Model1.CursosSecciones" />
+        <AssociationConnector Association="Model1.CursoActual" />
+        <AssociationConnector Association="Model1.EstudiantesTutores" />
+        <AssociationConnector Association="Model1.GradosAsignaturas" />
+        <EntityTypeShape EntityType="Model1.Calendarios" Width="1.5" PointX="10.5" PointY="4.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model1.CalendarioAcademico" Width="1.5" PointX="12.125" PointY="4.875" IsExpanded="false" />
+        <AssociationConnector Association="Model1.CalendariosCalendarioAcademico" />
+        <EntityTypeShape EntityType="Model1.Horarios" Width="1.5" PointX="10.5" PointY="3.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model1.Intervalos" Width="1.5" PointX="10.5" PointY="4.25" IsExpanded="false" />
+        <AssociationConnector Association="Model1.HorariosIntervalos" />
+        <AssociationConnector Association="Model1.HorariosAsignaturas" />
+        <AssociationConnector Association="Model1.HorariosCursos" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
